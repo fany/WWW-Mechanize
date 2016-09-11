@@ -1495,7 +1495,8 @@ sub form_with {
 # both are defined and eq(ual) or when both are not defined.
 sub _equal {
     my ( $x, $y ) = @_;
-    defined $x ? defined $y && $x eq $y : !defined $y;
+    no warnings 'uninitialized';
+    defined $x == defined $y && $x eq $y;
 }
 
 
